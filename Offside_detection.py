@@ -390,6 +390,6 @@ if __name__ == '__main__':
     cv2.destroyAllWindows()
     with open('output.txt', "r") as f1:
         last_line = f1.readlines()[-1]
-    print(last_line)
+    print("Final result is :",last_line)
 
 
