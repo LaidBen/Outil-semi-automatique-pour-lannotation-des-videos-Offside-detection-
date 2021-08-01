@@ -1,4 +1,4 @@
-# import Offside_detection
+from Offside_detection import main
 import tkinter
 from tkinter import *
 from tkinter import messagebox
@@ -8,9 +8,9 @@ import cv2
 
 global vidpath 
 class Interface:
-    
+ 
     def open_file(self):
-        
+        # global vidpath 
         self.pause = False
 
         self.filename = filedialog.askopenfilename(title="Select file", filetypes=(("MP4 files", "*.mp4"),
@@ -95,7 +95,7 @@ class Interface:
         # self.btn_end.grid(row=0,column=2)
         
         #Scan Button
-        self.btn_annot = Button(btbottom_frame, text="Annotate",width=30, command= exit)
+        self.btn_annot = Button(btbottom_frame, text="Annotate",width=30,command= exit)
         # self.btn_annot.pack(side=BOTTOM)
         self.btn_annot.grid(row=0,column=0)
 
