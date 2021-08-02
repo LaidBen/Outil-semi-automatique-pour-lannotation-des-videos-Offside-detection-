@@ -311,28 +311,31 @@ def detectOffside():
         print('Not Offside 4', file=f)
 
 
-def main(): #path
+def main(path): #path
     global frame, roi, M, roi_hist_A, roi_hist_B, op,orig_op , grad, prevgrad, passes, ball_center, pts_ball, frame, vel, prev_vel, prevPasser, prevTeam, minDist, teamB_new ,f
 
     f = open("output.txt", "w")
     
-    args = track_utils.getArguements()
+    # args = track_utils.getArguements()
     # args["video"] = path 
 
-    if not args.get("video", False):
+    # if not args.get("video", False):
+    if not path:
         camera = cv2.VideoCapture(0)
     else:
-        camera = cv2.VideoCapture(args["video"])
+        camera = cv2.VideoCapture(path)
+        # camera = cv2.VideoCapture(args["video"])
     
     orig_op = io.imread('soccer_half_field.jpeg')
     op = orig_op.copy()
     fgbg = cv2.createBackgroundSubtractorMOG2(history=20, detectShadows=False)
     flag = False
-    # print(args["video"])
+    
     while True:
         (grabbed, frame) = camera.read()
 
-        if args.get("video") and not grabbed:
+        # if args.get("video") and not grabbed:
+        if path and not grabbed:
             break
 
         frame = track_utils.resize(frame, width=400)
@@ -396,4 +399,5 @@ def main(): #path
     print("Final result is :",last_line)
 
 if __name__ == '__main__':
-    main()
+    vidpath=".\\vid88.mp4"
+    main(vidpath)
