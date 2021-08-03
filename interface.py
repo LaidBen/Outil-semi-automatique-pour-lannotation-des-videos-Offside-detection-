@@ -1,4 +1,4 @@
-from Offside_detection import main
+import Offside_detection as OF
 import tkinter
 from tkinter import *
 from tkinter import messagebox
@@ -8,16 +8,17 @@ import cv2
 
 global path
 class Interface:
-    global path
+    path=None
+    # path =".\\vid88.mp4"
     def open_file(self):
-        global path 
+         
         self.pause = False
 
         self.filename = filedialog.askopenfilename(title="Select file", filetypes=(("MP4 files", "*.mp4"),
                                                                                          ("WMV files", "*.wmv"), ("AVI files", "*.avi"),("MKV File", "*.mkv")))
         print(self.filename)
 
-        path = self.filename
+        self.path = self.filename
 
         # Open the video file
         self.cap = cv2.VideoCapture(self.filename)
@@ -51,6 +52,9 @@ class Interface:
         if not self.pause:
             self.app.after(self.delay, self.play_video)
 
+    def annotate(self):
+        OF.main(self.path)
+
 
     def pause_video(self):
         self.pause = True    
@@ -59,6 +63,7 @@ class Interface:
     def __init__(self, app):
         global path 
         self.app = app
+        self.app.iconbitmap("assets/icon2.ico")
         self.app.title("Esi-Annot")
         self.app.geometry('900x650')
         background_img = PhotoImage(file=f"assets/bg3.png")
@@ -88,7 +93,7 @@ class Interface:
         self.btn_end.pack(side=LEFT)
         
         #Scan Button
-        self.btn_annot = Button(btbottom_frame, text="Annotate",width=30,command= main)
+        self.btn_annot = Button(btbottom_frame, text="Annotate",width=30, command=self.annotate) #exit
         self.btn_annot.grid(row=0,column=0)
         self.delay = 15 #ms
         self.app.mainloop()

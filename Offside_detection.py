@@ -14,7 +14,8 @@ import numpy as np
 import track_utils
 from collections import deque
 import math
-from skimage import io
+import tkinter
+from tkinter import messagebox
 
 frame = None
 orig_frame = None
@@ -311,8 +312,8 @@ def detectOffside():
         print('Not Offside 4', file=f)
 
 
-def main(path): #path
-    global frame, roi, M, roi_hist_A, roi_hist_B, op,orig_op , grad, prevgrad, passes, ball_center, pts_ball, frame, vel, prev_vel, prevPasser, prevTeam, minDist, teamB_new ,f
+def main(path): 
+    global frame, roi, M, roi_hist_A, roi_hist_B, op,orig_op , grad, prevgrad, passes, ball_center, pts_ball, frame, vel, prev_vel, prevPasser, prevTeam, minDist, teamB_new ,f,last_line 
 
     f = open("output.txt", "w")
     
@@ -326,7 +327,7 @@ def main(path): #path
         camera = cv2.VideoCapture(path)
         # camera = cv2.VideoCapture(args["video"])
     
-    orig_op = io.imread('soccer_half_field.jpeg')
+    orig_op = cv2.imread('soccer_half_field.jpeg')
     op = orig_op.copy()
     fgbg = cv2.createBackgroundSubtractorMOG2(history=20, detectShadows=False)
     flag = False
@@ -397,6 +398,8 @@ def main(path): #path
     with open('output.txt', "r") as f1:
         last_line = f1.readlines()[-1]
     print("Final result is :",last_line)
+    # messagebox.showerror(title='Final Result', message=last_line)
+
 
 if __name__ == '__main__':
     vidpath=".\\vid88.mp4"
