@@ -16,7 +16,7 @@ class Interface:
 
         self.filename = filedialog.askopenfilename(title="Select file", filetypes=(("MP4 files", "*.mp4"),
                                                                                          ("WMV files", "*.wmv"), ("AVI files", "*.avi"),("MKV File", "*.mkv")))
-        print(self.filename)
+        # print(self.filename)
 
         self.path = self.filename
 

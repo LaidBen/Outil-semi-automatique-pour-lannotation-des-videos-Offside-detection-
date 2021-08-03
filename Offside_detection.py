@@ -397,10 +397,10 @@ def main(path):
     cv2.destroyAllWindows()
     with open('output.txt', "r") as f1:
         last_line = f1.readlines()[-1]
-    print("Final result is :",last_line)
-    # messagebox.showerror(title='Final Result', message=last_line)
+    # print("Final result is :",last_line)
+    messagebox.showerror(title='Final Result', message=last_line)
 
 
-if __name__ == '__main__':
-    vidpath=".\\vid88.mp4"
-    main(vidpath)
+# if __name__ == '__main__':
+#     vidpath=".\\vid88.mp4"
+#     main(vidpath)
