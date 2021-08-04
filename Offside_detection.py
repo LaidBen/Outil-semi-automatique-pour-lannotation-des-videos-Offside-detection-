@@ -4,10 +4,7 @@
 #
 # To detect offside from live camera feed:
 # python Offside_detection.py
-#
 # while running the program, press 'i' to input and 'q' to quit
-# from interface import *
-# import interface
 import os
 import cv2
 import numpy as np
@@ -78,18 +75,12 @@ def trackBall():
 
         vel = math.sqrt((pts_ball[9][1] - pts_ball[0][1]) ** 2 + (pts_ball[9][0] - pts_ball[0][0]) ** 2) / 10
         if (math.fabs(grad - prevgrad) >= 20):
-            # or math.fabs(vel-prev_vel) >= 7:
-            # detectPlayers()
-            # print("a " + str(len(teamA)) + "  b " + str(len(teamB)))
             if len(teamA) != 0 and len(teamB) != 0:
                 getCoordinates()
                 detectPasser()
 
-                # print(passerIndex)
 
                 if ((prevTeam != team) or (passerIndex != prevPasser)) and minDist < 10000:
-                    # print(minDist)
-                    # print(str(team) + str(passerIndex))
                     if (team == 'A'):
 
                         detectOffside()
@@ -97,7 +88,6 @@ def trackBall():
                         print('Not offside 1', file=f)
 
                     passes += 1
-                    #print('Ball Passed ' + str(passes))
                 prevPasser = passerIndex
                 prevTeam = team
 
@@ -117,7 +107,6 @@ def detectPlayers():
     if roi_hist_A is not None:
         backProjA = cv2.calcBackProject([hsv], [0, 1], roi_hist_A, [0, 180, 0, 256], 1)
         maskA = track_utils.applyMorphTransforms2(backProjA)
-        #cv2.imshow('mask a', maskA)
 
         cnts = cv2.findContours(maskA.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[-2]
 
@@ -144,7 +133,6 @@ def detectPlayers():
     if roi_hist_B is not None:
         backProjB = cv2.calcBackProject([hsv], [0, 1], roi_hist_B, [0, 180, 0, 256], 1)
         maskB = track_utils.applyMorphTransforms2(backProjB)
-        #cv2.imshow('mask b', maskB)
 
         cnts = cv2.findContours(maskB.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[-2]
 
@@ -264,8 +252,6 @@ def drawOffsideLine():
 def closest_node(node, nodes):
     nodes = np.asarray(nodes)
     node = np.array([node[0], node[1]])
-    # print(nodes)
-    # print(node)
     dist_2 = np.sum((nodes - node) ** 2, axis=1)
 
     return np.argmin(dist_2)
@@ -275,19 +261,15 @@ def detectPasser():
     global ball_new, teamA, teamB, passerIndex, team, minDist
     teamA_min_ind = closest_node(ball_new, teamA_new)
     teamB_min_ind = closest_node(ball_new, teamB_new)
-    # print(np.asarray(teamA[teamA_min_ind]))
-    # print(np.asarray(ball_center))
+    
     teamA_min = np.sum(([np.asarray(teamA_new[teamA_min_ind])] - np.asarray(ball_new)) ** 2, axis=1)
     teamB_min = np.sum(([np.asarray(teamB_new[teamB_min_ind])] - np.asarray(ball_new)) ** 2, axis=1)
     minDist = min(teamB_min, teamA_min)
     if (teamA_min < teamB_min):
-        # print("Ball passed by TeamA player")
 
         passerIndex = teamA_min_ind
-        # print(passerIndex)
         team = 'A'
     else:
-        # print("Ball passed by TeamB player")
         passerIndex = teamB_min_ind
         team = 'B'
 
@@ -296,12 +278,8 @@ def detectOffside():
     global teamA_new, teamB_new, passerIndex ,f
     if len(teamB_new) > 0:
         if len(teamA_new) > 0:
-            # teamA_new.sort()
             teamB_new.sort()
-            # print(teamA_new)
             if (teamB_new[0][0] > teamA_new[passerIndex][0]):
-                # if (teamB[0][0] > teamA[passerIndex][0]):
-                # print(passerIndex)
                 # Assuming no goalie
                 print('Offside 2 ', file=f)
             else:
@@ -316,16 +294,10 @@ def main(path):
     global frame, roi, M, roi_hist_A, roi_hist_B, op,orig_op , grad, prevgrad, passes, ball_center, pts_ball, frame, vel, prev_vel, prevPasser, prevTeam, minDist, teamB_new ,f,last_line 
 
     f = open("output.txt", "w")
-    
-    # args = track_utils.getArguements()
-    # args["video"] = path 
-
-    # if not args.get("video", False):
     if not path:
         camera = cv2.VideoCapture(0)
     else:
         camera = cv2.VideoCapture(path)
-        # camera = cv2.VideoCapture(args["video"])
     
     orig_op = cv2.imread('soccer_half_field.jpeg')
     op = orig_op.copy()
@@ -335,7 +307,6 @@ def main(path):
     while True:
         (grabbed, frame) = camera.read()
 
-        # if args.get("video") and not grabbed:
         if path and not grabbed:
             break
 
@@ -397,10 +368,4 @@ def main(path):
     cv2.destroyAllWindows()
     with open('output.txt', "r") as f1:
         last_line = f1.readlines()[-1]
-    # print("Final result is :",last_line)
-    messagebox.showerror(title='Final Result', message=last_line)
-
-
-# if __name__ == '__main__':
-#     vidpath=".\\vid88.mp4"
-#     main(vidpath)
+    messagebox.showinfo(title='Final Result', message=last_line)

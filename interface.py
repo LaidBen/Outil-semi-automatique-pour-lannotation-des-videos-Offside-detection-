@@ -9,7 +9,6 @@ import cv2
 global path
 class Interface:
     path=None
-    # path =".\\vid88.mp4"
     def open_file(self):
          
         self.pause = False
@@ -22,6 +21,9 @@ class Interface:
 
         # Open the video file
         self.cap = cv2.VideoCapture(self.filename)
+        
+        # self.cap= cv2.resize(self.cap,(700,450))
+        # frame = cv2.resize(frame, (800,600)) 
 
         #frame of canvas
         # self.width = self.cap.get(cv2.CAP_PROP_FRAME_WIDTH)
@@ -46,7 +48,7 @@ class Interface:
         ret, frame = self.get_frame()
 
         if ret:
-            self.photo = PIL.ImageTk.PhotoImage(image = PIL.Image.fromarray(frame))
+            self.photo = PIL.ImageTk.PhotoImage(image = PIL.Image.fromarray(frame)) #.resize(700,450)
             self.canvas.create_image(0, 0, image = self.photo, anchor = NW)
 
         if not self.pause:
@@ -54,11 +56,6 @@ class Interface:
 
     def annotate(self):
         OF.main(self.path)
-
-
-    def pause_video(self):
-        self.pause = True    
-
     
     def __init__(self, app):
         global path 
@@ -66,6 +63,7 @@ class Interface:
         self.app.iconbitmap("assets/icon2.ico")
         self.app.title("Esi-Annot")
         self.app.geometry('900x650')
+        self.app.resizable(False,False)
         background_img = PhotoImage(file=f"assets/bg3.png")
         label1 = Label( self.app, image = background_img)
         label1.place(x = 0, y = 0)
@@ -97,7 +95,5 @@ class Interface:
         self.btn_annot.grid(row=0,column=0)
         self.delay = 15 #ms
         self.app.mainloop()
-        # main(path)
 #create window
-global path
 Interface(Tk())

@@ -19,7 +19,7 @@ $ python Offside_detection.py
 * Input two points along each side of the field in the exact order as shown 
 i.e. Top edge, Left edge, Bottom edge then Right edge.
 
-* To run the interface :
+* To run the project :
 ```javascript
 $ python interface.py
 ```
