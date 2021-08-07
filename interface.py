@@ -86,7 +86,7 @@ class Interface:
         self.canvas.pack()
 
         # Select Button
-        img3 = PhotoImage(file = f"img3.png")
+        img3 = PhotoImage(file = f"assets/img3.png")
         btn_select= Button(image = img3,borderwidth = 0,highlightthickness = 0,command = self.open_file,relief = "flat")
         # btn_select=Button(bottom_frame, text="Select video file", width=15, command= self.open_file)
         # btn_select.pack(side=LEFT)
@@ -95,7 +95,7 @@ class Interface:
            
         # Play Button
         self.btn_play=Button(bottom_frame, text="Play", width=15, command=self.play_video)
-        img1 = PhotoImage(file = f"img1.png")
+        img1 = PhotoImage(file = f"assets/img1.png")
         self.btn_play= Button(image = img1,borderwidth = 0,highlightthickness = 0,command = self.play_video,relief = "flat")
         # self.btn_play.pack(side=LEFT)
         self.btn_play.place(x=350, y=610)
@@ -103,12 +103,12 @@ class Interface:
            
         #exit Button
         # self.btn_end = Button(bottom_frame, text="exit",width=15, command= exit)
-        img2 = PhotoImage(file = f"img2.png")
+        img2 = PhotoImage(file = f"assets/img2.png")
         self.btn_end = Button(image = img2, borderwidth = 0, highlightthickness = 0,command = exit, relief = "flat")
         self.btn_end.place(x=505, y=610)
         
         #Scan Button
-        img0 = PhotoImage(file = f"img0.png")
+        img0 = PhotoImage(file = f"assets/img0.png")
         # self.btn_annot = Button(btbottom_frame, text="Annotate",width=30, command=self.annotate) #exit
         self.btn_annot=Button(image = img0, borderwidth =0,highlightthickness = 0,command = self.annotate,relief = "flat")
         # self.btn_annot.pack(side=TOP)
