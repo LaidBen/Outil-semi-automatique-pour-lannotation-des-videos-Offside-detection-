@@ -85,7 +85,7 @@ def trackBall():
 
                         detectOffside()
                     else:
-                        print('Not offside 1', file=f)
+                        print('Not offside ', file=f)
 
                     passes += 1
                 prevPasser = passerIndex
@@ -281,13 +281,13 @@ def detectOffside():
             teamB_new.sort()
             if (teamB_new[0][0] > teamA_new[passerIndex][0]):
                 # Assuming no goalie
-                print('Offside 2 ', file=f)
+                print('Offside  ', file=f)
             else:
-                print('Not Offside 2', file=f)
+                print('Not Offside ', file=f)
         else:
-            print('Not Offside 3', file=f)  
+            print('Not Offside ', file=f)  
     else:
-        print('Not Offside 4', file=f)
+        print('Not Offside ', file=f)
 
 
 def main(path): 

@@ -64,21 +64,23 @@ class Interface:
         global path 
         self.app = app
         self.app.iconbitmap("assets/icon2.ico")
-        self.app.title("Esi-Annot")
-        self.app.geometry('1000x675')
+        self.app.title("Soccer Offside Detection")
+        self.app.geometry('1018x675')
         self.app.resizable(False,False)
+        # self.app.wm_attributes("-transparentcolor", 'grey')
         background_img = PhotoImage(file=f"assets/bg1.png")
         label1 = Label( self.app, image = background_img)
         label1.place(x = -2, y = -5)
 
-
+        # label2=Label(self.app,text="OffSide Detection", bg= "#ffffd0",fg = "#fad195",font = ("ZCOOLKuaiLe-Regular", int(36.0)))
+        # label2.place(x=323 , y = 75)
         bottom_frame = Frame(app)
         bottom_frame.pack(side=BOTTOM, pady=5)
         btbottom_frame = Frame(app)
         btbottom_frame.pack(side=BOTTOM, pady=5)
         top_frame = Frame(self.app)
         # top_frame.grid(row=1,column=1)#,padx=200, sticky=W + E + N + S
-        top_frame.pack(side=TOP, padx=150 ,pady=100) 
+        top_frame.pack(side=TOP, padx=109 ,pady=130) 
         # top_frame.config(background="red")
 
         self.canvas = Canvas(top_frame, width=800, height=411)#
@@ -90,7 +92,7 @@ class Interface:
         btn_select= Button(image = img3,borderwidth = 0,highlightthickness = 0,command = self.open_file,relief = "flat")
         # btn_select=Button(bottom_frame, text="Select video file", width=15, command= self.open_file)
         # btn_select.pack(side=LEFT)
-        btn_select.place(x=656, y=100)
+        btn_select.place(x=715, y=130)
         
            
         # Play Button

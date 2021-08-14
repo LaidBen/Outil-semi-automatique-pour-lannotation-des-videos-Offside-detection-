@@ -216,13 +216,13 @@ def getHist(frame):
     roi_hist_A, roi_hist_B = None, None
 
     if roi_hist_A is None:
-        roi = getROIvid(frame,'input team A (attacking team)')
+        roi = getROIvid(frame,'input team A (Attacking team)')
         roi = cv2.cvtColor(roi,cv2.COLOR_BGR2HSV)
         roi_hist_A = cv2.calcHist([roi],[0,1],None,[180,256],[0,180,0,256])
         roi_hist_A = cv2.normalize(roi_hist_A, roi_hist_A, 0, 255, cv2.NORM_MINMAX)
 
     if roi_hist_B is None:
-        roi = getROIvid(frame, 'input team B (defending team)')
+        roi = getROIvid(frame, 'input team B (Defending team)')
         roi = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
         roi_hist_B = cv2.calcHist([roi], [0, 1], None, [180, 256], [0, 180, 0, 256])
         roi_hist_B = cv2.normalize(roi_hist_B, roi_hist_B, 0, 255, cv2.NORM_MINMAX)
