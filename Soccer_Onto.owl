@@ -1,0 +1,764 @@
+@prefix : <http://www.Soccer_Ontology.com#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.Soccer_Ontology.com> .
+
+<http://www.Soccer_Ontology.com> rdf:type owl:Ontology ;
+                                  owl:backwardCompatibleWith "Video_Object" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.Soccer_Ontology.com#Assistant-referee_Detected_In
+:Assistant-referee_Detected_In rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf :Detected_Object_With_Frame .
+
+
+###  http://www.Soccer_Ontology.com#B_Detected_In
+:B_Detected_In rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :Detected_Object_With_Frame ;
+               rdfs:domain :Ball ;
+               rdfs:range :Frame .
+
+
+###  http://www.Soccer_Ontology.com#Belong
+:Belong rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :Frame_With_Video_sequence .
+
+
+###  http://www.Soccer_Ontology.com#Corner_Point_Detected_In
+:Corner_Point_Detected_In rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf :Detected_Object_With_Frame .
+
+
+###  http://www.Soccer_Ontology.com#Detected_Object_With_Frame
+:Detected_Object_With_Frame rdf:type owl:ObjectProperty .
+
+
+###  http://www.Soccer_Ontology.com#Frame_With_Video_sequence
+:Frame_With_Video_sequence rdf:type owl:ObjectProperty .
+
+
+###  http://www.Soccer_Ontology.com#GL_Detected_In
+:GL_Detected_In rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :Detected_Object_With_Frame .
+
+
+###  http://www.Soccer_Ontology.com#Player_Detected_In
+:Player_Detected_In rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :Detected_Object_With_Frame .
+
+
+###  http://www.Soccer_Ontology.com#VS_Contained_F
+:VS_Contained_F rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :Frame_With_Video_sequence .
+
+
+###  http://www.Soccer_Ontology.com#penalty_area_Detected_In
+:penalty_area_Detected_In rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf :Detected_Object_With_Frame .
+
+
+###  http://www.Soccer_Ontology.com#Official-referee_Detected_In/
+<http://www.Soccer_Ontology.com#Official-referee_Detected_In/> rdf:type owl:ObjectProperty ;
+                                                               rdfs:subPropertyOf :Detected_Object_With_Frame .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.Soccer_Ontology.com#Ball_Center_Y
+:Ball_Center_Y rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :Detected_Object_Properties .
+
+
+###  http://www.Soccer_Ontology.com#Ball_center_X
+:Ball_center_X rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :Detected_Object_Properties ;
+               rdfs:domain :Ball ;
+               rdfs:range xsd:int .
+
+
+###  http://www.Soccer_Ontology.com#Bottom_Left_Point_X
+:Bottom_Left_Point_X rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :Detected_Object_Properties .
+
+
+###  http://www.Soccer_Ontology.com#Bottom_Right_Point_Y
+:Bottom_Right_Point_Y rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf :Detected_Object_Properties .
+
+
+###  http://www.Soccer_Ontology.com#Detected_In_Frame
+:Detected_In_Frame rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :Detected_Object_Properties .
+
+
+###  http://www.Soccer_Ontology.com#Detected_Object_Properties
+:Detected_Object_Properties rdf:type owl:DatatypeProperty .
+
+
+###  http://www.Soccer_Ontology.com#Frame_Properties
+:Frame_Properties rdf:type owl:DatatypeProperty .
+
+
+###  http://www.Soccer_Ontology.com#GL_Point_X
+:GL_Point_X rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :Detected_Object_Properties .
+
+
+###  http://www.Soccer_Ontology.com#GL_Point_Y
+:GL_Point_Y rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :Detected_Object_Properties .
+
+
+###  http://www.Soccer_Ontology.com#Number_Frame
+:Number_Frame rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :Frame_Properties .
+
+
+###  http://www.Soccer_Ontology.com#Number_Of_Frame
+:Number_Of_Frame rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :Video_Sequences_Properties .
+
+
+###  http://www.Soccer_Ontology.com#Number_Of_Pixels
+:Number_Of_Pixels rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :Frame_Properties .
+
+
+###  http://www.Soccer_Ontology.com#Started_F
+:Started_F rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf :Detected_Object_Properties .
+
+
+###  http://www.Soccer_Ontology.com#Started_F_Goal_Event
+:Started_F_Goal_Event rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf :Video_Sequences_Properties .
+
+
+###  http://www.Soccer_Ontology.com#Started_F_Penalty_Event
+:Started_F_Penalty_Event rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf :Video_Sequences_Properties .
+
+
+###  http://www.Soccer_Ontology.com#Top_Left_Point_X
+:Top_Left_Point_X rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :Detected_Object_Properties .
+
+
+###  http://www.Soccer_Ontology.com#Top_Right_Point_Y
+:Top_Right_Point_Y rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :Detected_Object_Properties .
+
+
+###  http://www.Soccer_Ontology.com#Video_Sequences_Properties
+:Video_Sequences_Properties rdf:type owl:DatatypeProperty .
+
+
+###  http://www.Soccer_Ontology.com#Video_URI
+:Video_URI rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf :Video_Sequences_Properties .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.Soccer_Ontology.com#Assist-pass
+:Assist-pass rdf:type owl:Class ;
+             rdfs:subClassOf :Ball_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Assistant-referee
+:Assistant-referee rdf:type owl:Class ;
+                   rdfs:subClassOf :Referee .
+
+
+###  http://www.Soccer_Ontology.com#Back-pass
+:Back-pass rdf:type owl:Class ;
+           rdfs:subClassOf :Ball_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Ball
+:Ball rdf:type owl:Class ;
+      rdfs:subClassOf :Video_Object .
+
+
+###  http://www.Soccer_Ontology.com#Ball-control
+:Ball-control rdf:type owl:Class ;
+              rdfs:subClassOf :Ball_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Ball_Actions
+:Ball_Actions rdf:type owl:Class ;
+              rdfs:subClassOf :Video_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Bicycle-kick
+:Bicycle-kick rdf:type owl:Class ;
+              rdfs:subClassOf :Ball_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Captain
+:Captain rdf:type owl:Class ;
+         rdfs:subClassOf :Players .
+
+
+###  http://www.Soccer_Ontology.com#Centre-circle
+:Centre-circle rdf:type owl:Class ;
+               rdfs:subClassOf :Soccer_Field .
+
+
+###  http://www.Soccer_Ontology.com#Centre-spot
+:Centre-spot rdf:type owl:Class ;
+             rdfs:subClassOf :Soccer_Field .
+
+
+###  http://www.Soccer_Ontology.com#Corner
+:Corner rdf:type owl:Class ;
+        rdfs:subClassOf :Players_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Corner-Lines
+:Corner-Lines rdf:type owl:Class ;
+              rdfs:subClassOf :Soccer_Field .
+
+
+###  http://www.Soccer_Ontology.com#Corner-flag
+:Corner-flag rdf:type owl:Class ;
+             rdfs:subClassOf :Soccer_Field .
+
+
+###  http://www.Soccer_Ontology.com#Corner-kick
+:Corner-kick rdf:type owl:Class ;
+             rdfs:subClassOf :Ball_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Corner-point
+:Corner-point rdf:type owl:Class ;
+              rdfs:subClassOf :Soccer_Field .
+
+
+###  http://www.Soccer_Ontology.com#Corner-spot
+:Corner-spot rdf:type owl:Class ;
+             rdfs:subClassOf :Soccer_Field .
+
+
+###  http://www.Soccer_Ontology.com#Counter-attack
+:Counter-attack rdf:type owl:Class ;
+                rdfs:subClassOf :Players_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Cross
+:Cross rdf:type owl:Class ;
+       rdfs:subClassOf :Ball_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Crossbar
+:Crossbar rdf:type owl:Class ;
+          rdfs:subClassOf :Soccer_Field .
+
+
+###  http://www.Soccer_Ontology.com#Defender
+:Defender rdf:type owl:Class ;
+          rdfs:subClassOf :Players .
+
+
+###  http://www.Soccer_Ontology.com#Dribbling
+:Dribbling rdf:type owl:Class ;
+           rdfs:subClassOf :Players_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Equalizer
+:Equalizer rdf:type owl:Class ;
+           rdfs:subClassOf :Players_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Forth-official
+:Forth-official rdf:type owl:Class ;
+                rdfs:subClassOf :Referee .
+
+
+###  http://www.Soccer_Ontology.com#Foul
+:Foul rdf:type owl:Class ;
+      rdfs:subClassOf :Players_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Frame
+:Frame rdf:type owl:Class ;
+       rdfs:subClassOf :Video_Object .
+
+
+###  http://www.Soccer_Ontology.com#Free-kick
+:Free-kick rdf:type owl:Class ;
+           rdfs:subClassOf :Ball_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Goal
+:Goal rdf:type owl:Class ;
+      rdfs:subClassOf :Players_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Goal-Keeper
+:Goal-Keeper rdf:type owl:Class ;
+             rdfs:subClassOf :Players .
+
+
+###  http://www.Soccer_Ontology.com#Goal-Lines
+:Goal-Lines rdf:type owl:Class ;
+            rdfs:subClassOf :Soccer_Field .
+
+
+###  http://www.Soccer_Ontology.com#Goal_Attempt
+:Goal_Attempt rdf:type owl:Class ;
+              rdfs:subClassOf :Players_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Halfway-Line
+:Halfway-Line rdf:type owl:Class ;
+              rdfs:subClassOf :Soccer_Field .
+
+
+###  http://www.Soccer_Ontology.com#Hat-Trick
+:Hat-Trick rdf:type owl:Class ;
+           rdfs:subClassOf :Players_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Intercept
+:Intercept rdf:type owl:Class ;
+           rdfs:subClassOf :Ball_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Kick-Off
+:Kick-Off rdf:type owl:Class ;
+          rdfs:subClassOf :Players_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Long-ball
+:Long-ball rdf:type owl:Class ;
+           rdfs:subClassOf :Ball_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Manager
+:Manager rdf:type owl:Class ;
+         rdfs:subClassOf :Video_Object .
+
+
+###  http://www.Soccer_Ontology.com#Midfielder
+:Midfielder rdf:type owl:Class ;
+            rdfs:subClassOf :Players .
+
+
+###  http://www.Soccer_Ontology.com#Official-referee
+:Official-referee rdf:type owl:Class ;
+                  rdfs:subClassOf :Referee .
+
+
+###  http://www.Soccer_Ontology.com#Offside
+:Offside rdf:type owl:Class ;
+         rdfs:subClassOf :Players_Actions .
+
+
+###  http://www.Soccer_Ontology.com#One-two
+:One-two rdf:type owl:Class ;
+         rdfs:subClassOf :Ball_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Own-Goal
+:Own-Goal rdf:type owl:Class ;
+          rdfs:subClassOf :Players_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Panenka
+:Panenka rdf:type owl:Class ;
+         rdfs:subClassOf :Ball_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Pass
+:Pass rdf:type owl:Class ;
+      rdfs:subClassOf :Ball_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Penalty
+:Penalty rdf:type owl:Class ;
+         rdfs:subClassOf :Players_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Penalty-area
+:Penalty-area rdf:type owl:Class ;
+              rdfs:subClassOf :Soccer_Field .
+
+
+###  http://www.Soccer_Ontology.com#Penalty-kick
+:Penalty-kick rdf:type owl:Class ;
+              rdfs:subClassOf :Ball_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Penalty-spot
+:Penalty-spot rdf:type owl:Class ;
+              rdfs:subClassOf :Soccer_Field .
+
+
+###  http://www.Soccer_Ontology.com#Players
+:Players rdf:type owl:Class ;
+         rdfs:subClassOf :Video_Object .
+
+
+###  http://www.Soccer_Ontology.com#Players_Actions
+:Players_Actions rdf:type owl:Class ;
+                 rdfs:subClassOf :Video_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Pressing
+:Pressing rdf:type owl:Class ;
+          rdfs:subClassOf :Players_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Referee
+:Referee rdf:type owl:Class ;
+         rdfs:subClassOf :Video_Object .
+
+
+###  http://www.Soccer_Ontology.com#Save
+:Save rdf:type owl:Class ;
+      rdfs:subClassOf :Players_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Shoot
+:Shoot rdf:type owl:Class ;
+       rdfs:subClassOf :Ball_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Side-Line
+:Side-Line rdf:type owl:Class ;
+           rdfs:subClassOf :Soccer_Field .
+
+
+###  http://www.Soccer_Ontology.com#Simulation
+:Simulation rdf:type owl:Class ;
+            rdfs:subClassOf :Players_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Soccer_Field
+:Soccer_Field rdf:type owl:Class ;
+              rdfs:subClassOf :Video_Object .
+
+
+###  http://www.Soccer_Ontology.com#Striker
+:Striker rdf:type owl:Class ;
+         rdfs:subClassOf :Players .
+
+
+###  http://www.Soccer_Ontology.com#Substitution
+:Substitution rdf:type owl:Class ;
+              rdfs:subClassOf :Players_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Suspension
+:Suspension rdf:type owl:Class ;
+            rdfs:subClassOf :Players_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Tackle
+:Tackle rdf:type owl:Class ;
+        rdfs:subClassOf :Players_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Video_Actions
+:Video_Actions rdf:type owl:Class .
+
+
+###  http://www.Soccer_Ontology.com#Video_Object
+:Video_Object rdf:type owl:Class .
+
+
+###  http://www.Soccer_Ontology.com#Video_Sequences
+:Video_Sequences rdf:type owl:Class .
+
+
+###  http://www.Soccer_Ontology.com#Volley
+:Volley rdf:type owl:Class ;
+        rdfs:subClassOf :Ball_Actions .
+
+
+###  http://www.Soccer_Ontology.com#Yellow/Red-Card
+<http://www.Soccer_Ontology.com#Yellow/Red-Card> rdf:type owl:Class ;
+                                                 rdfs:subClassOf :Players_Actions .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.Soccer_Ontology.com#B1
+:B1 rdf:type owl:NamedIndividual ,
+             :Ball ;
+    :Ball_Center_Y "97"^^xsd:int ;
+    :Ball_center_X "55"^^xsd:int .
+
+
+###  http://www.Soccer_Ontology.com#B1021
+:B1021 rdf:type owl:NamedIndividual ,
+                :Ball ;
+       owl:sameAs :B1023 ;
+       :B_Detected_In :B1021 ;
+       :Ball_Center_Y "56"^^xsd:int ;
+       :Ball_center_X "42"^^xsd:int .
+
+
+###  http://www.Soccer_Ontology.com#B1022
+:B1022 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#B1023
+:B1023 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#B1024
+:B1024 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#B1025
+:B1025 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#B1026
+:B1026 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#B1027
+:B1027 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#B1028
+:B1028 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#B1029
+:B1029 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#B1030
+:B1030 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#B1031
+:B1031 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#B1032
+:B1032 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#B1033
+:B1033 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#B1034
+:B1034 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#B1035
+:B1035 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#B1036
+:B1036 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#B1037
+:B1037 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#B1038
+:B1038 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#B1039
+:B1039 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#F0110
+:F0110 rdf:type owl:NamedIndividual ,
+                :Frame .
+
+
+###  http://www.Soccer_Ontology.com#F0111
+:F0111 rdf:type owl:NamedIndividual ,
+                :Frame .
+
+
+###  http://www.Soccer_Ontology.com#F0112
+:F0112 rdf:type owl:NamedIndividual ,
+                :Frame .
+
+
+###  http://www.Soccer_Ontology.com#F0113
+:F0113 rdf:type owl:NamedIndividual ,
+                :Frame .
+
+
+###  http://www.Soccer_Ontology.com#F0114
+:F0114 rdf:type owl:NamedIndividual ,
+                :Frame .
+
+
+###  http://www.Soccer_Ontology.com#F0115
+:F0115 rdf:type owl:NamedIndividual ,
+                :Ball .
+
+
+###  http://www.Soccer_Ontology.com#F0116
+:F0116 rdf:type owl:NamedIndividual ,
+                :Frame .
+
+
+###  http://www.Soccer_Ontology.com#F0117
+:F0117 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#F0118
+:F0118 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#m1
+:m1 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#m10
+:m10 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#m2
+:m2 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#m3
+:m3 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#m4
+:m4 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#m5
+:m5 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#m6
+:m6 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#m7
+:m7 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#m8
+:m8 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#m9
+:m9 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p1
+:p1 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p10
+:p10 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p11
+:p11 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p12
+:p12 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p13
+:p13 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p14
+:p14 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p15
+:p15 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p16
+:p16 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p17
+:p17 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p18
+:p18 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p19
+:p19 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p2
+:p2 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p3
+:p3 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p4
+:p4 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p5
+:p5 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p6
+:p6 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p7
+:p7 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p8
+:p8 rdf:type owl:NamedIndividual .
+
+
+###  http://www.Soccer_Ontology.com#p9
+:p9 rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
